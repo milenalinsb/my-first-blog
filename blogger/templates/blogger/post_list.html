@@ -4,7 +4,7 @@
         <title>Blog da Mila</title>
     </head>
     <Título principal>
-    <h1><a href="/">Bolg da Mila</a></h1>
+    <h1><a href="/">Blog da Mila</a></h1>
     <sub-título>
     <h2>News!</h2>
     <br>
@@ -12,6 +12,14 @@
     <p>Oi meus amores!</p>
     <p>Nosso blog está em manutenção, depois voltamos com mais novidades!</p>
     <h2>AGUARDEM!!!</h2>
+    <br>
+    {% for post in posts %}
+        <div>
+        <p>publicado em: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
     <br>
     <p> Acessem o site do nosso patrocinador. Eles são incríveis e estão auxiliando nos ajustes do Blog</p>
     <a href="https://djangogirls.org">https://djangogirls.org</a>
