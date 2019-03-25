@@ -1,29 +1,41 @@
+{% load staticfiles %}
 <html>
     <Título da página>
     <head>
         <title>Blog da Milena</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <Título principal>
-    <h1><a href="/">Blog da Mila</a></h1>
-    <sub-título>
+    <div class="page-header">
+        <h1><a href="/">Blog da Mila</a></h1>
+    </div>
     <h2>News!</h2>
     <br>
 <body>
     <p>Oi meus amores!</p>
-    <p>Nosso blog está em manutenção, depois voltamos com mais novidades!</p>
-    <h2>AGUARDEM!!!</h2>
-    <br>
-    {% for post in posts %}
-        <div>
-        <p>publicado em: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}    
+    <p>Nosso blog está em manutenção, depois voltamos com mais novidades!</p> <br>
+    <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>published: {{ post.published_date }}</p>
+                            </div>
+                            <h1><a href="">{{ post.title }}</a></h1>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>    
     <br>
     <p> Acessem o site do nosso patrocinador. Eles são incríveis e estão auxiliando nos ajustes do Blog</p>
     <a href="https://djangogirls.org">https://djangogirls.org</a>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
 </body>
+
 </html>
